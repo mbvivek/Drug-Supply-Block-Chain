@@ -1,0 +1,7 @@
+- created a new angular App
+- npm install uport-connect
+- npm install web3
+- implement routes
+- created uportService and web3Service
+- in tsconfig.app.json, replaced "module": "es6", to "module": "commonjs" and restarted the app
+- in nodemodules->jsontokens->lib->cryptoClients->secp256k1.js, change var _crypto = require('crypto'); to var _crypto = require('crypto-browserify');
