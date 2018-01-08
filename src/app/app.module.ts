@@ -10,7 +10,11 @@ import { Web3Service } from "./services/web3/web3.service";
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
-  imports: [BrowserModule, RoutesModule, NgbModule.forRoot()],
+  imports: [
+    BrowserModule,
+    RoutesModule,
+    NgbModule.forRoot()
+  ],
   providers: [UportService, Web3Service],
   bootstrap: [AppComponent]
 })
