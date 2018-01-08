@@ -1,5 +1,5 @@
 # Drug Supply Block Chain
-A secure web based application for detecting and tracking illegal drug supply chain using Blockchain technology and help the nation from the threat of drug counterfeits.
+A secure web based application for detecting and tracking illegal drug supply chain using Blockchain technology and help to tackle drug counterfeits.
 
 ## Application Architecture
 ### Server
