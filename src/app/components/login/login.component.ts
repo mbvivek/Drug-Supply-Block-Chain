@@ -10,18 +10,13 @@ import { Web3Service } from "../../services/web3/web3.service";
 })
 export class LoginComponent implements OnInit {
   uportService: any;
-  web3Service: any;
   qr: any;
 
-  constructor(uportService: UportService, web3Service: Web3Service) {
+  constructor(uportService: UportService) {
     this.uportService = uportService;
-    this.web3Service = web3Service;
   }
 
   ngOnInit() {
-    console.log("login onInit..");
-    console.log(this.uportService);
-    console.log(this.web3Service);
     this.login();
   }
 
@@ -33,7 +28,6 @@ export class LoginComponent implements OnInit {
           notifications: false
         },
         uri => {
-          console.log(uri);
           this.qr = kjua({
             text: uri,
             fill: "#000000",

@@ -7,14 +7,11 @@ import { LoginComponent } from "./components/login/login.component";
 import { RoutesModule } from "./routes/routes.module";
 import { UportService } from "./services/uport/uport.service";
 import { Web3Service } from "./services/web3/web3.service";
+import { RegisterComponent } from "./components/register/register.component";
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
-  imports: [
-    BrowserModule,
-    RoutesModule,
-    NgbModule.forRoot()
-  ],
+  declarations: [AppComponent, LoginComponent, RegisterComponent],
+  imports: [BrowserModule, RoutesModule, NgbModule.forRoot()],
   providers: [UportService, Web3Service],
   bootstrap: [AppComponent]
 })
