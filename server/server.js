@@ -4,6 +4,11 @@
 Web3 = require("web3");
 Accounts = require("web3-eth-accounts");
 
+// uport
+uportConnect = require("uport-connect");
+//import { Connect, SimpleSigner } from "uport-connect";
+
+
 var express = require("express");
 var bodyParser = require("body-parser");
 
@@ -11,9 +16,7 @@ var bodyParser = require("body-parser");
 var app = express();
 
 // create web3 object
-web3 = new Web3(
-  new Web3.providers.HttpProvider("http://localhost:8545")
-);
+web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
 // add testrpc accounts
 web3.eth.getAccounts().then(accounts => {
@@ -37,4 +40,16 @@ app.get("/", function(req, res) {
 // listen for requests
 app.listen(3000, function() {
   console.log("Server is listening on port 3000");
+});
+
+console.log(uportConnect);
+
+var signer = uportConnect.SimpleSigner(
+  "947483440f13e79e7149022777cd3be31e2fe01d27fd60ff33bc2e7308e68d9b"
+);
+
+var credentials = new uportConnect.Credentials({
+  appName: "Drug Supply Block Chain",
+  address: "2of76V3H9JWoW6YdXpaLeTpoaEFGRwcorLa",
+  signer: signer
 });

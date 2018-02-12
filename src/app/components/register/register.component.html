@@ -1,13 +1,55 @@
-<div class="template" style="background-image: url('./assets/images/background.png');">
-  <p class="py-5 text-center display-4">
+<div class="template" style="background-image: url('./assets/images/background.png'); background-size:cover;">
+  <p class="py-5 m-0 text-center display-4">
     <strong>Drug Supply
       <sup>Block</sup> Chain</strong>
   </p>
-  <div class="container text-center">
-    <p class="m-0">Scan using uPort app to login</p>
-    <img *ngIf="qr" src={{qr.src}} width="350px" height="auto" alt="QR Code">
-    <p>New User?
-      <a href="register" class="btn btn-sm btn-outline-dark">Register</a>
+  <div class="container">
+    <h5 class="text-center">
+      <b>Register Organization</b>
+    </h5>
+    <br>
+    <form #orgRegForm="ngForm" (submit)="onSubmit($event, orgRegForm)" class="col-8 offset-2">
+      <div class="row">
+        <div class="col text-center">
+          <div class="qr-container">
+            <img class="qrc" *ngIf="qr" src={{qr.src}} [ngClass]="{blur: isQRCScanned}" alt="QR Code">
+            <div class="qr-container-center-text" *ngIf="isQRCScanned">
+              <i class="fas fa-check-circle fa-3x my-2" style="color: white"></i>
+              <br>
+              <a href="#" (click)="reloadQRC($event)" class="btn btn-sm btn-outline-light">Reload</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label>Organization Name</label>
+            <input type="text" class="form-control" name="name" [(ngModel)]="org.name" placeholder="Enter your organization's name" required>
+          </div>
+          <div class="form-group">
+            <label>Organization Address</label>
+            <input type="text" class="form-control" name="addr" [(ngModel)]="org.addr" placeholder="Enter your organization's address"
+              required>
+          </div>
+          <div class="form-group">
+            <label>Organization Type</label>
+            <select class="form-control" name="type" [(ngModel)]="org.type" required>
+              <option value="Manufacturer">Manufacturer</option>
+              <option value="Distributor">Distributor</option>
+              <option value="Dispenser">Dispenser</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="orgAdminName">Admin Name</label>
+            <input type="text" class="form-control" name="adminName" [(ngModel)]="org.adminName" required readonly>
+            <small class="form-text text-muted">Scan QR Code using uPort app</small>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary float-right">Submit</button>
+      <div class="clearfix"></div>
+    </form>
+    <p class="text-center">Already registered?
+      <a href="login" class="btn btn-sm btn-outline-dark">Login</a>
     </p>
   </div>
 </div>

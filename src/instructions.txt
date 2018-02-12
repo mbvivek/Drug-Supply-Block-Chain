@@ -5,3 +5,31 @@
 - created uportService and web3Service
 - in tsconfig.app.json, replaced "module": "es6", to "module": "commonjs" and restarted the app
 - in nodemodules->jsontokens->lib->cryptoClients->secp256k1.js, change var _crypto = require('crypto'); to var _crypto = require('crypto-browserify');
+
+
+Steps to install uport
+
+- npm install uport-connect
+- Create an app, in uport app manager
+- Fill in the mandatory fields
+- Expand "Click Here for your App Code" link
+- Copy the code and paste it in your application
+- The code should look something like this
+
+import { Connect, SimpleSigner } from 'uport-connect'
+
+const uport = new Connect('Vivek\'s new app', {
+    clientId: '2oh5d.....msd',
+    network: 'rinkeby or ropsten or kovan', -> !important - select just one, usually rinkeby
+    signer: SimpleSigner('b519e5.....34f')
+})
+
+- add this code anywhere in the app to get the credentials
+
+uport.requestCredentials({
+    requested: ['name', 'phone', 'country'],
+    notifications: true // We want this if we want to recieve credentials
+})
+.then((credentials) => {
+    // Do something
+})

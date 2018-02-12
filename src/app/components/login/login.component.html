@@ -1,11 +1,11 @@
-<div class="template" style="background-image: url('./assets/images/background.png'); background-size:cover;">
-  <p class="py-5 text-center display-4">
+<div class="template background-image" style="background-image: url('./assets/images/background.png'); background-size:cover;">
+  <p class="py-5 m-0 text-center display-4">
     <strong>Drug Supply
       <sup>Block</sup> Chain</strong>
   </p>
-  <div class="container text-center">
-    <p class="m-0">Scan using uPort app to login</p>
-    <img *ngIf="qr" src={{qr.src}} width="350px" height="auto" alt="QR Code">
+  <div class="container text-center col-6 offset-3">
+    <h5 class="m-1">Scan using uPort app to login</h5>
+    <img class="qrc mt-2 mb-4" *ngIf="qr" src={{qr.src}} alt="QR Code">
     <p>New User?
       <a href="register" class="btn btn-sm btn-outline-dark">Register</a>
     </p>
